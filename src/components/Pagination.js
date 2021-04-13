@@ -1,0 +1,24 @@
+import React from 'react'
+
+const Pagination = ({ moviesPerPages, totalMovies, paginate }) => {
+
+    const pageNumbers = []
+
+    for(let i = 1; i <= Math.ceil(totalMovies / moviesPerPages); i++) {
+        pageNumbers.push(i)
+    }
+
+    return (
+        <nav>
+            <ul className="pagination">
+                {pageNumbers.map(number => (
+                    <li key={number} className="page_item"> 
+                        <a onClick={() => paginate(number)} href="!#" className="page_link">{number}</a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    )
+}
+
+export default Pagination

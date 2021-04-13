@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  --white-color: #E5E4E2;
+  --light-grey-color:#909090;
+  --light-grey-darken-color:#606060;
+  --blue-color: #4f78a4;
+  --dark-grey-color: #333131;
+  --dark-grey-middle-color: #252424;
+  --dark-grey-darken-color: #181818;
+  --red-color: #E73631;
+  
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  box-sizing: border-box;
+
+}
+body {
+  background-color: var(--dark-grey-color);
+  font-size: 1rem;
+}
+.App {
+  padding: 0 8px;
+  width: 100%;
+  min-height: 95vh;
+  position: relative;
+}
+h1 {
+  color: var(--white-color);
+  text-align: center;
+  margin: 2rem 0;
+}
+.react_icons {
+  position: relative;
+  margin-bottom: -4px;
+  margin-right: 5px;
+}
+ul {
+  list-style: none;
+}
+/* End General */
+
+
+/* searchbar */
+.searchbar {
+  background-color: var(--dark-grey-middle-color);
+  margin: auto;
+  max-width: 300px; 
+  padding: 30px 30px 7px 30px;  
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.searchbar input {
+  padding: 10px 0;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--white-color);
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: var(--white-color);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.searchbar form div {
+  position: relative;
+} 
+.searchbar form div label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: var(--white-color);
+  transition: 0.5s;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+.searchbar input:focus~label {
+  top: -20px;
+  left: 0;
+  font-style: italic;
+}
+.searchbar input:not(:valid)~label {
+  top: -20px;
+  left: 0;
+  font-style: italic;
+}
+/* End searchbar */
+
+
+/* Filters */
+.filtersSection {
+  margin-top: 2.2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+.filtersSection .filtersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+}
+.filtersSection .filterContainer {
+  margin: 5px 8px;
+}
+.filtersSection label {
+	display: flex; 
+  align-items: center; 
+	color: var(--light-grey-color);
+	position: relative;
+}
+.filtersSection input {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+.filtersSection label > span {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	border: 2px solid var(--light-grey-color);
+	margin-right: 5px;
+	border-radius: 3px;
+	transition: all .3s;
+}
+.filtersSection input:checked + label > span {
+	border: 10px solid var(--blue-color);
+	animation: bounce 250ms;
+}
+.filtersSection input:checked + label > span::before {
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: 4px;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	transform: rotate(45deg);
+	transform-origin: 0% 100%;
+	animation: checked-box 125ms 250ms forwards;
+}
+@keyframes checked-box {
+	0% {
+		width: 0;
+		height: 0;
+		border-color: var(--dark-grey-color);
+		transform: translate(0,0) rotate(45deg);
+	}
+	33% {
+		width: 4px;
+		height: 0;
+		border-color: var(--dark-grey-color);
+		transform: translate(0,0) rotate(45deg);
+	}
+	100% {
+		width: 4px;
+		height: 8px;
+		border-color: var(--dark-grey-color);
+		transform: translate(0,-8px) rotate(45deg);
+	}
+}
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	33% {
+		transform: scale(.7);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+/* End Filters */
+
+
+/* Movies section */
+.moviesContainer {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movieContainer {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--dark-grey-darken-color);
+  border-radius: 10px;
+  margin: 1rem 1.5rem;
+  padding: 1rem 1rem;
+  max-width: 20%;
+  min-width: 250px;
+}
+.idCard {
+  font-size: 2rem;
+  margin-bottom: -15px;
+}
+.movieContainer li {
+  list-style: none;
+  color: var(--white-color);
+  line-height: 1.6rem;
+  margin: 1rem;
+}
+.movieContainer .title {
+  font-weight: bold;
+}
+.vote {
+  width: 150px;
+  margin: 40px auto 0 auto;
+}
+.vote_bar {
+  height: 4px;
+  background-color: var(--white-color);
+}
+.vote_progress {
+  height: 4px;
+  background-color: var(--blue-color);
+}
+.vote_btns {
+  margin-top: 10px;
+}
+.vote_btn {
+  border: none;
+  padding: 0;
+  margin: 0 8px;
+  cursor: pointer;
+  display: inline-block;
+  background: transparent;
+  transition: 0.25s;
+  color: var(--white-color);
+}
+.vote_like:hover, .vote_dislike:hover {
+  color: var(--blue-color);
+}
+.vote_isLiked, .vote_isDisliked {
+  color: var(--blue-color);
+}
+.delete_btn {
+  color: var(--white-color);
+  margin-top: 30px;
+  transition: 0.25s;
+}
+.delete_btn:hover {
+  color: var(--red-color)
+}
+nav {
+  display: flex;
+}
+.pagination {
+  margin: 25px auto;
+  max-width: 90%;
+}
+.pagination li {
+  display: inline-block;
+  margin: 5px 10px;
+}
+.pagination li a {
+  padding: 10px 10px;
+  background-color: var(--dark-grey-darken-color);
+  color: var(--light-grey-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: 0.25s;
+  border-radius: 5px;
+}
+.pagination li:hover a {
+  color: var(--white-color);
+  background-color: var(--blue-color);
+
+}
+.nbPerPage {
+  display: flex;
+}
+.nbPerPage ul {
+  margin: auto;
+  display: flex;
+}
+.nbPerPage ul li {
+  margin: 10px 10px;
+  font-size: 1.2rem;
+  color: var(--light-grey-color);
+  transition: 0.25s;
+}
+.nbPerPage ul li:hover {
+  color: var(--white-color);
+  cursor: pointer;
+}
+/* End Movies section */
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark-grey-middle-color);
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  line-height: 2.3rem;
+  border-radius: 10px 10px 0 0;
+  padding: 20px 10px;
+}
+.footer a {
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.footer, .footer a, .footer .footerLogo {
+  color: var(--white-color);
+}
+/* End Footer */
+
+/* Loader */
+.loaderContainer {
+  margin: 3rem 0;
+  width: 100%;
+}
+.faSpinner--container {
+  display: flex;
+}
+.faSpinner {
+  color: var(--blue-color);
+  font-size: 4rem;
+  animation: spinner 1.3s steps(9) infinite;
+  margin: auto;
+}
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+/* End Loader */
+
+
